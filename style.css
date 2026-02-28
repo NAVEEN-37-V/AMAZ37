@@ -1,82 +1,99 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* ✅ Glass Background (more premium) */
+    --background: 220 30% 96%;
+    --foreground: 220 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    --primary: 220 30% 18%;
+    --primary-foreground: 40 20% 98%;
+
+    --secondary: 220 20% 92%;
+    --secondary-foreground: 220 25% 12%;
+
+    --muted: 220 15% 90%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 28 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 28 95% 55%;
+
+    --radius: 1rem;
+
+    --star: 45 93% 47%;
+    --badge-deal: 145 63% 42%;
+    --badge-deal-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    /* ✅ Apple-style dark glass base */
+    --background: 220 25% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 40 20% 95%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 28 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 28 95% 55%;
+
+    --star: 45 93% 47%;
+    --badge-deal: 145 63% 42%;
+    --badge-deal-foreground: 0 0% 100%;
+  }
 }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-header h1 {
-  color: #ff6600;
-  margin-bottom: 5px;
-}
+  body {
+    /* ✅ Liquid glass background gradient */
+    @apply bg-background text-foreground font-sans antialiased;
 
-header p {
-  color: #555;
-  margin-bottom: 30px;
-}
+    background-image:
+      radial-gradient(at 20% 20%, rgba(255,255,255,0.4), transparent 40%),
+      radial-gradient(at 80% 0%, rgba(255,255,255,0.25), transparent 40%);
+    background-attachment: fixed;
+  }
 
-.products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.product {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-  width: 280px;
-  transition: 0.2s ease;
-}
-
-.product:hover {
-  transform: translateY(-5px);
-}
-
-.product img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.product h2 {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.price {
-  font-weight: bold;
-  color: #007b00;
-  margin-bottom: 10px;
-}
-
-.btn-buy {
-  background: #ff6600;
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  display: inline-block;
-  transition: 0.2s;
-}
-
-.btn-buy:hover {
-  background: #e65500;
-}
-
-.note {
-  font-size: 14px;
-  color: #777;
-  margin-top: 30px;
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
 }
